@@ -1,15 +1,16 @@
 {
-    "hosting": {
-        "site": "trupiggybank",
-        "public": "dist/tru-front",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "rewrites": [{
-            "source": "**",
-            "destination": "/index.html"
-        }]
-    }
+  "hosting": {
+    "public": "dist/tru-front",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }
