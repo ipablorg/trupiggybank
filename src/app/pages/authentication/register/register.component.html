@@ -1,0 +1,60 @@
+<h4 class="mt-4  text-tru">Bienvenido a TRU Piggy Bank</h4>
+<p class="mb-2  text-muted">Por favor registra tus datos</p>
+
+<form class="form-horizontal mt-4" id="loginform" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="crearUsuario()">
+
+
+    <div class="form-group m-t-20">
+        <div class="col-xs-12">
+            <input class="form-control" type="text" placeholder="Nombre Completo" formControlName="nombre">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input class="form-control" type="text" placeholder="Correo electrónico" formControlName="email">
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="col-xs-12">
+            <input class="form-control" type="password" placeholder="Contraseña" formControlName="password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input class="form-control" type="password" placeholder="Confirmar contraseña" formControlName="password2">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="checkbox checkbox-primary p-t-0">
+
+                <input id="checkbox-signup" type="checkbox" formControlName="terminos">
+
+                <label for="checkbox-signup" class="text-tru ml-2"> Acepto los<a href="#"> Terminos y condiciones</a></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-danger">
+
+            <p *ngIf="campoNoValido('nombre')">El nombre es obligatorio</p>
+            <p *ngIf="campoNoValido('email')">El email es obligatorio y tiene que ser válido</p>
+            <p *ngIf="contrasenasNoValidas()">Las contraseñas deben de ser iguales</p>
+            <p *ngIf="aceptaTerminos()">Debes aceptar los términos de uso</p>
+
+        </div>
+    </div>
+
+    <div class="form-group text-center mt-4">
+        <div class="col-xs-12">
+            <button class="btn btn-circle btn-lg btn-outline-success btn-block" type="submit"><i class="mdi mdi-login"></i> registrarme</button>
+        </div>
+    </div>
+    <div class="form-group m-b-0">
+        <div class="col-sm-12 text-center text-tru">
+            <p>Ya te registraste? <a routerLink="/auth/login" class="text-info m-l-5"><b>Ingresar</b></a></p>
+        </div>
+    </div>
+</form>

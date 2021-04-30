@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "trupiggybank": {
+      "hosting": {
+        "tru-front": [
+          "trupiggybank"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "trupiggybank"
+  }
+}

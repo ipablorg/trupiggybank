@@ -1,0 +1,103 @@
+<app-header></app-header>
+
+<div class="container">
+
+
+    <div class="row">
+
+
+        <div class="col-6">
+            <div class="jumbotron mt-3 pt-5 pb-2 btn-circle">
+                <h1 class="text-tru">
+                    Hola!
+                </h1>
+                <p class="text-tru">
+                    Para empezar a depositar en tu alcancia, debes tener Metamask instalado. Aún no lo tienes? <a href="https://metamask.io/">Click aquí</a>
+                </p>
+                <p class="text-secondary">
+                    Cuenta Metamask: {{ web3Service.cuentaMetaMask }}
+                </p>
+                <p class="text-secondary">
+                    Balance: <br>
+                </p>
+                <h2 class="text-tru">
+                    {{ web3Service.balanceCuenta }} ETH.
+                </h2>
+
+                <div class="mt-4  mb-3 text-center">
+
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" (click)="depositarClick()" Active class="btn btn-outline-success active">Depositar en la alcancia</button>
+                        <button type="button" (click)="retirarClick()" class="btn btn-outline-info">Retirar de la alcancia</button>
+                    </div>
+
+                </div>
+
+                <form *ngIf="depositarEther" #formulario="ngForm" class="text-center">
+
+                    <div class="mb-3">
+                        <label class="form-label text-success">Ingresa el monto en ETH que quieres depositar</label>
+                        <input [(ngModel)]="valorAdepositar" name="valorAdepositar" type="number" class="form-control" placeholder="Ingresa el valor a depositar" required>
+                        <button (click)="depositar(formulario)" class="btn btn-success btn-block btn-circle mt-3">Depositar ETH</button>
+                    </div>
+
+
+                </form>
+
+
+                <form *ngIf="retirarEther" #formulario2="ngForm" class="text-center">
+
+                    <div class="mb-3">
+                        <label class="form-label text-info">Ingresa el monto en ETH  que quieres retirar</label>
+                        <input [(ngModel)]="valorAdepositar" name="valorAretirar" type="number" class="form-control" placeholder="Ingresa el valor a depositar" required>
+
+                        <button (click)="retirar(formulario2)" class="btn btn-success btn-block btn-circle mt-3">Retirar ETH</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-6">
+            <div class="jumbotron mt-3 btn-circle">
+                <h1 class="text-tru">
+                    Tu alcancia TRU:
+                </h1>
+                <p class="text-tru">
+                    Hasta el momento has ahorrado:
+                </p>
+                <h2 class="text-tru">
+                    {{ web3Service.alcancia }} ETH.
+                </h2>
+
+
+                <div>
+
+                    <div class="text-center mt-4">
+                        <img src="assets/images/tru.png" height="220">
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+<app-footer></app-footer>
